@@ -1,0 +1,16 @@
+---
+- name: Install Cockpit packages
+  package:
+    name: "{{ cockpit_packages }}"
+    state: present
+
+- name: Install net-tools package
+  package:
+    name: "{{ net_tools_packages }}"
+    state: present
+
+- name: Start and enable Cockpit service
+  service:
+    name: cockpit.socket
+    state: started
+    enabled: true
